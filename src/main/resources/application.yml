@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: yu-ai-agent
+  ai:
+    dashscope:
+      api-key: "sk-580f4b385f4a415389433752807eb0c5"
+      chat:
+        options:
+          model: qwen-plus
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        dimensions: 1536
+        distance-type: COSINE_DISTANCE
+        max-document-batch-size: 10000 # Optional: Maximum number of documents per batch
+    mcp:
+#      client:
+#        stdio:
+#          servers-configuration: classpath:mcp-servers.json
+      client:
+        sse:
+          connections:
+            server1:
+              url: http://localhost:8127
+        # stdio:
+        # servers-configuration: classpath:mcp-servers.json
+
+#    datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/a_test?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+#    username: root
+#    password: "123"
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/yu_ai_agent
+    username: postgres
+    password: "123"
+
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+# springdoc-openapi
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.yupi.yuaiagent.controller
+# knife4j
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+# searchAPI
+search-api:
+  api-key: e4K8ooYmhwDrTUYepz66MWva
