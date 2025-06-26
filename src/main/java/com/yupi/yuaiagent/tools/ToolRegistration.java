@@ -21,6 +21,7 @@ public class ToolRegistration {
         ResourceDownloadTool resourceDownloadTool = new ResourceDownloadTool();
         TerminalOperationTool terminalOperationTool = new TerminalOperationTool();
         PDFGenerationTool pdfGenerationTool = new PDFGenerationTool();
+        TerminateTool terminateTool = new TerminateTool();
         /**
          * 把一系列普通的对象转换为工具，会识别tool注解
          */
@@ -30,7 +31,8 @@ public class ToolRegistration {
                 webScrapingTool,
                 resourceDownloadTool,
                 terminalOperationTool,
-                pdfGenerationTool
+                pdfGenerationTool,
+                terminateTool
         );
     }
 }
