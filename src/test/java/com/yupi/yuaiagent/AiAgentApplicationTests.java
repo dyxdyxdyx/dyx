@@ -11,7 +11,7 @@ import java.sql.Types;
 import java.util.Collections;
 
 @SpringBootTest
-class YuAiAgentApplicationTests {
+class AiAgentApplicationTests {
 
     @Test
     void contextLoads() {
