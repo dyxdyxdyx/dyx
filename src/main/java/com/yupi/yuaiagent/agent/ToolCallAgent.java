@@ -72,7 +72,9 @@ public class ToolCallAgent extends ReActAgent {
             Prompt prompt = new Prompt(messageList, this.chatOptions);
 
             //2 调用Ai大模型，获取AI工具调用的结果
-            ChatResponse chatResponse = getChatClient().prompt(prompt).system(getSystemPrompt())
+            ChatResponse chatResponse = getChatClient()
+                    .prompt(prompt)
+                    .system(getSystemPrompt())
                     .tools(availableTools)
                     .call()
                     .chatResponse();
