@@ -3,5 +3,18 @@ spring:
     name: yu-image-search-mcp-server
   profiles:
     active: sse
+  datasource:
+    url: jdbc:mysql://localhost:3306/a_test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: "123"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
 server:
   port: 8127
+
+# MyBatis
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.example.yuimagesearchmcpserver.entity
+  configuration:
+    map-underscore-to-camel-case: true
